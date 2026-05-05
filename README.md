@@ -149,8 +149,6 @@ go mod tidy
 # For console version (shows window - good for debugging)
 go build -o secure-tunnel.exe main.go
 
-# For GUI version (no console - runs in background)
-go build -ldflags="-H windowsgui" -o secure-tunnel.exe main.go
 
 # Step 5: (Optional) Move to bin folder
 mkdir bin\windows_x64
