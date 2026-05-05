@@ -36,7 +36,7 @@ jobs:
         go mod tidy
 
     - name: Build Executable
-      run: go build -ldflags="-H windowsgui" -o secure-tunnel.exe main.go
+      run: go build -o secure-tunnel.exe main.go
 
     - name: Organize Binaries
       run: |
