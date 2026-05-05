@@ -1,0 +1,64 @@
+name: Build Windows Executable
+
+on:
+  push:
+    branches: [ main ]
+    # ONLY trigger if files outside the bin folder change.
+    # This prevents the bot's own commit from triggering a new build loop.
+    paths-ignore:
+      - 'bin/**'
+      - '**.md'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with:
+        # Fetch all history so git can compare properly
+        fetch-depth: 0
+
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+
+    - name: Initialize and Tidy Module
+      run: |
+        if (!(Test-Path go.mod)) { go mod init secure-tunnel }
+        go mod tidy
+
+    - name: Build Executable
+      run: go build -ldflags="-H windowsgui" -o secure-tunnel.exe main.go
+
+    - name: Organize Binaries
+      run: |
+        if (!(Test-Path bin/windows_x64)) { New-Item -ItemType Directory -Force -Path bin/windows_x64 }
+        Move-Item -Force secure-tunnel.exe bin/windows_x64/
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # Add the binary and the mod files
+        git add bin/windows_x64/secure-tunnel.exe go.mod go.sum
+        
+        $status = git status --porcelain
+        if ($status) {
+            # [skip ci] in the message is an extra safety measure 
+            # to tell GitHub not to run a workflow for this specific commit.
+            git commit -m "Auto-build: Update binary [skip ci]"
+            git push
+        } else {
+            Write-Host "No changes detected in binary or modules."
+        }
+
+   
