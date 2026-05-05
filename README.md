@@ -136,8 +136,8 @@ Here is the updated **Option 1** section to add to your `README.md`:
 
 ```powershell
 # Step 1: Clone the repository
-git clone https://github.com/ishanoshada/secure-tunnel-windows.git
-cd secure-tunnel-windows
+git clone https://github.com/ishanoshada/Secure-Tunnel-Windows.git
+cd Secure-Tunnel-Windows
 
 # Step 2: Initialize Go module
 go mod init secure-tunnel
@@ -198,11 +198,6 @@ You can use these SNI hosts in your `config.json` depending on your active inter
 ---
 
 
-ඔයාගේ GitHub එකේ වැඩකටයුතු සාර්ථක වෙන්න ඉෂාන්! මේ විදිහට දේශීය පෑකේජ් වලට ගැලපෙන විදිහට README එක අප්ඩේට් කරාම අනිත් අයට පාවිච්චි කරන්න ගොඩක් ලේසි වෙයි.
-
-What’s the next step for this tool—are you planning to add a simple GUI or keep it console-focused for now?
-
-
 ### Step 2: Configuration Parameters
 
 | Parameter | Description | Example |
@@ -212,7 +207,7 @@ What’s the next step for this tool—are you planning to add a simple GUI or k
 | `sniHost` | SNI host for TLS fingerprint (can be any domain) | `m.facebook.com`, `www.google.com`, `cdn.cloudflare.com` |
 | `serverAddress` | Your VLESS server address | `seaseus.pp.ua` |
 | `serverPort` | VLESS server port | `443` |
-| `userID` | VLESS user UUID | `ab73296c-6f34-4684-94d6-770053cd4367` |
+| `userID` | VLESS user UUID | `ab73296c-6f34-4684-..........` |
 | `path` | WebSocket path | `/seaseus` |
 | `tunnelName` | Custom tunnel name (optional) | `My Tunnel` |
 
