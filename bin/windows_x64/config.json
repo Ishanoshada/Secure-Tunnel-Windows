@@ -1,0 +1,9 @@
+{
+  "exePath": "E:\\softwares\\v2ray\\xray.exe",
+  "localPort": 10808,
+  "sniHost": "m.facebook.com",
+  "serverAddress": "your-server.com",
+  "serverPort": 443,
+  "userID": "your-uuid-here",
+  "path": "/your-path"
+}

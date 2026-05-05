@@ -117,12 +117,19 @@ https://golang.org/dl/
 
 ## 🚀 Installation & Setup
 
+To make the download as easy as possible for users, you can use a direct link to the "raw" file in your repository. This allows them to click and save the file immediately.
+
+Here is the updated **Option 1** section to add to your `README.md`:
+
+---
+
 ### Option 1: Download Pre-built Binary (Easiest)
 
-**From GitHub Releases:**
-1. Go to  `/bin/windows_x64/secure-tunnel.exe` (latest build)
-4. Place in any folder (e.g., `C:\tunnel\`)
-5. Verify the downloaded file is an .exe executable.
+**From GitHub Main Branch:**
+1. **[Download secure-tunnel.exe](https://github.com/Ishanoshada/Secure-Tunnel-Windows/raw/main/bin/windows_x64/secure-tunnel.exe)** (Click to download latest build)
+2. Place the file in any folder (e.g., `C:\tunnel\`)
+3. Ensure you also have your `config.json` in the same folder.
+4. **Note:** Some browsers may flag the `.exe` as "unrecognized"—click "Keep" or "Run anyway" as this is a custom-built tool.
 
 
 ### Option 2: Build from Source (For Developers)
