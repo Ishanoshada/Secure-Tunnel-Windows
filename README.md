@@ -117,11 +117,6 @@ https://golang.org/dl/
 
 ## 🚀 Installation & Setup
 
-To make the download as easy as possible for users, you can use a direct link to the "raw" file in your repository. This allows them to click and save the file immediately.
-
-Here is the updated **Option 1** section to add to your `README.md`:
-
----
 
 ### Option 1: Download Pre-built Binary (Easiest)
 
